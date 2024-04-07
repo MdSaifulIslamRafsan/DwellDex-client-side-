@@ -1,7 +1,8 @@
 [
     {
       "estate_title": "Cozy Cottage Retreat",
-      "id": "001",
+      "id": "1",
+      "img": "https://i.ibb.co/SNnKRGK/istockphoto-178559422-170667a.webp",
       "segment_name": "Single-family homes",
       "description": "Charming single-family home located in a quiet suburban neighborhood. This spacious residence offers comfortable living with ample natural light and modern amenities. The open floor plan includes a cozy living room, a well-appointed kitchen, and a private backyard, perfect for relaxing or entertaining guests. With its serene surroundings and convenient location, this home provides an ideal retreat for families seeking tranquility and comfort.",
       "price": "$300,000",
@@ -12,7 +13,8 @@
     },
     {
       "estate_title": "Urban Townhouse Haven",
-      "id": "002",
+      "id": "2",
+      "img": "https://i.ibb.co/S0pcCMH/photo-1624343385944-b99336163b50.jpg",
       "segment_name": "Townhouses",
       "description": "Modern townhouse offering urban sophistication and convenience. This stylish residence features sleek design elements and high-end finishes throughout. With multiple levels, including a rooftop terrace, it provides stunning views of the downtown skyline. The spacious living areas are perfect for entertaining, while the attached garage offers convenient parking. Located in the heart of the city, this townhouse is ideal for those seeking a contemporary lifestyle in a vibrant urban setting.",
       "price": "$500,000",
@@ -23,7 +25,8 @@
     },
     {
       "estate_title": "Cityscape Apartment Living",
-      "id": "003",
+      "id": "3",
+      "img": "https://i.ibb.co/Qng1nVt/photo-1619542402915-dcaf30e4e2a1.jpg",
       "segment_name": "Apartments",
       "description": "Luxurious apartment with panoramic city views and resort-style amenities. This modern residence offers spacious living areas with floor-to-ceiling windows, allowing for plenty of natural light and breathtaking views of the city skyline. Residents have access to a state-of-the-art fitness center, a sparkling swimming pool, and a stylish lounge area. Conveniently located in the bustling metropolitan area, this apartment provides the ultimate urban lifestyle experience for discerning renters.",
       "price": "$2,500/month",
@@ -34,7 +37,8 @@
     },
     {
       "estate_title": "Campus Comfort Quarters",
-      "id": "004",
+      "id": "4",
+      "img": "https://i.ibb.co/G9hVkRy/istockphoto-1367813999-170667a.webp",
       "segment_name": "Student housing",
       "description": "Student-friendly housing community offering comfort and convenience. Located near universities, this housing complex provides cozy and affordable accommodations for students. Each room is furnished with essential amenities, including a shared kitchen, study lounge, and laundry facilities. With its proximity to campus and communal living environment, this residence fosters a supportive community for students to thrive academically and socially.",
       "price": "$800/month per room",
@@ -45,7 +49,8 @@
     },
     {
       "estate_title": "Serene Retirement Retreat",
-      "id": "005",
+      "id": "5",
+      "img": "https://i.ibb.co/Btzhrz9/istockphoto-1448774140-170667a.webp",
       "segment_name": "Senior living communities",
       "description": "Tranquil senior living community offering comfort and companionship. Nestled in a serene natural setting, this community provides a peaceful retreat for retirees seeking an active and fulfilling lifestyle. Residents have access to a range of amenities, including a community center, walking trails, and beautifully landscaped gardens. With a focus on wellness and social engagement, this retirement community offers a vibrant and supportive environment for seniors to enjoy their golden years.",
       "price": "$3,000/month",
@@ -56,8 +61,9 @@
     },
     {
       "estate_title": "Modern Multi-family Complex",
-      "id": "006",
-      "segment_name": "Apartments",
+      "id": "6",
+      "img": "https://i.ibb.co/GdZbMkJ/istockphoto-861963462-170667a.webp",
+      "segment_name": "vacation rentals",
       "description": "Contemporary apartment building featuring modern design and upscale amenities. This multi-family complex offers a variety of spacious units with open-concept layouts and high-end finishes. Residents can enjoy access to a fitness center, parking garage, and a lush community garden. Conveniently located in a suburban neighborhood, this complex provides residents with a comfortable and convenient lifestyle.",
       "price": "$1,200,000",
       "status": "sale",
