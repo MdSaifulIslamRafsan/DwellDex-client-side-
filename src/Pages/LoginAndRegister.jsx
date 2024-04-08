@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const LoginAndRegister = () => {
   const [register, setRegister] = useState(false);
+
+  const {handleGoogleLogin} =  useContext(AuthContext);
+
+
+
   return (
     <div className="w-80 rounded-xl md:w-96 lg:w-[800px] mx-auto bg-gray-800 flex items-center relative overflow-hidden shadow-xl my-40">
 
@@ -133,6 +139,7 @@ const LoginAndRegister = () => {
         </p>
         <hr />
         <button
+        onClick={handleGoogleLogin}
           type="button"
           className="py-4 hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto block shadow-lg border rounded-md border-black"
         >
