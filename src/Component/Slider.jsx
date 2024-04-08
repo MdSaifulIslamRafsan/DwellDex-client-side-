@@ -21,7 +21,7 @@ const Slider = () => {
 
   return (
     <div
-      className="w-full  h-72  sm:h-96 md:h-[540px] flex flex-col xl:flex-row items-center justify-center gap-5 lg:gap-10 relative bg-cover before:absolute before:bg-black/50 before:inset-0 transform duration-1000 ease-linear z-10 overflow-hidden"
+      className="w-full h-80 sm:h-96 md:h-[540px] flex flex-col xl:flex-row items-center justify-center gap-5 lg:gap-10 relative bg-cover before:absolute before:bg-black/50 before:inset-0 transform duration-1000 ease-linear z-10 overflow-hidden"
       style={{
         backgroundImage: `url(${
           currentSlider === 0
@@ -31,7 +31,7 @@ const Slider = () => {
       }}
     >
       {/* arrow */}
-      <div className="absolute bottom-[10%] right-1/3 flex gap-3 z-50 px-5">
+      <div className="absolute bottom-[7%] right-[37%] flex gap-3 z-50 px-5">
         {/* arrow left */}
         <button
           onClick={prevSlider}

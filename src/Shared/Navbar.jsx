@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import './Navbar.css';
 
 const Navbar = () => {
   const navLinks = (
@@ -9,12 +10,15 @@ const Navbar = () => {
       <li>
         <NavLink to={"/updateProfile"}>Update Profile</NavLink>
       </li>
+      <li>
+        <NavLink to={"/userProfile"}>User Profile</NavLink>
+      </li>
     </>
   );
 
   return (
     <nav className="bg-base-100">
-      <div className="navbar max-w-[1440px] w-10/12 mx-auto ">
+      <div className="navbar max-w-[1440px] w-11/12 lg:w-10/12 mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -56,7 +60,7 @@ const Navbar = () => {
         <div className="navbar-end">
           <Link
             to={"/login"}
-            className="btn hover:animate__animated hover:animate__headShake px-10 relative flex h-[50px]  items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
+            className="btn hover:animate__animated hover:animate__headShake px-5 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
           >
             <span className="relative z-10">Login</span>
           </Link>

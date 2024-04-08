@@ -114,7 +114,7 @@ const LoginAndRegister = () => {
             id="_password"
             type="password"
             placeholder=".............."
-            min={5}
+           
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
         </div>

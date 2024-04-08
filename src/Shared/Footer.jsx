@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="px-4 border-t-2 border-gray-700 divide-y  ">
-      <div className="max-w-[1440px] w-10/12 mx-auto">
+      <div className="max-w-[1440px] w-11/12 lg:w-10/12 mx-auto">
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           <div
             data-aos="fade-right"
