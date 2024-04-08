@@ -1,7 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
-import './Navbar.css';
-
+import "./Navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Navbar = () => {
+  const { user, handleLogout } = useContext(AuthContext);
+
   const navLinks = (
     <>
       <li>
@@ -58,14 +63,34 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link
-            to={"/login"}
-            className="btn hover:animate__animated hover:animate__headShake px-5 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
-          >
-            <span className="relative z-10">Login</span>
-          </Link>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="btn hover:animate__animated hover:animate__headShake px-5 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
+            >
+              <span className="relative z-10">Logout</span>
+            </button>
+          ) : (
+            <Link
+              to={"/login"}
+              className="btn hover:animate__animated hover:animate__headShake px-5 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
+            >
+              <span className="relative z-10">Login</span>
+            </Link>
+          )}
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </nav>
   );
 };

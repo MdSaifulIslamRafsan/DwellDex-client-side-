@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaGithub } from "react-icons/fa";
 
 const LoginAndRegister = () => {
   const [register, setRegister] = useState(false);
 
-  const {handleGoogleLogin} =  useContext(AuthContext);
+  const {handleGoogleLogin , handleGithubLogin} =  useContext(AuthContext);
 
 
 
@@ -195,6 +196,14 @@ const LoginAndRegister = () => {
             </g>
           </svg>
           Continue with Google
+        </button>
+        <button
+        onClick={handleGithubLogin}
+          type="button"
+          className="py-4 flex  hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto item-center gap-2  shadow-lg border rounded-md border-black"
+        >
+          <FaGithub className="text-2xl"></FaGithub>
+          Continue with Github
         </button>
       </form>
     </div>
