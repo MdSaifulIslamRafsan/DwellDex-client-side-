@@ -5,10 +5,11 @@ import Navbar from "../Shared/Navbar";
 const Root = () => {
     return (
         <div>
-            <div className="w-full shadow-2xl z-50 fixed top-0">
-                <Navbar></Navbar>
-            </div>
-            <main className="mt-10">
+         
+                <nav className="h-[68px]">
+                    <Navbar></Navbar>
+                </nav>
+            <main className="">
                 
                 <Outlet></Outlet>
             </main>

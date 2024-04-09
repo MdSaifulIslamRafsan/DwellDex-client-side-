@@ -16,7 +16,7 @@ const DetailsPage = () => {
   return (
         
     
-      <section className="max-w-[1440px] mx-auto w-11/12 lg:w-10/12 mb-20 mt-32">
+      <section className="max-w-[1440px] mx-auto w-11/12 lg:w-10/12 my-20 ">
         <div className=" mx-auto space-y-6 sm:space-y-12">
           <a href='#'
             className="block  gap-3 mx-auto sm:max-w-full group  lg:grid lg:grid-cols-12"

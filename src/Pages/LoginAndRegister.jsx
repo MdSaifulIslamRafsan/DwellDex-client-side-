@@ -11,7 +11,7 @@ const LoginAndRegister = () => {
 
 
   return (
-    <div className="w-80 rounded-xl md:w-96 lg:w-[800px] mx-auto bg-gray-800 flex items-center relative overflow-hidden shadow-xl my-40">
+    <div className="w-80 rounded-xl md:w-96 lg:w-[800px] mx-auto bg-gray-800 flex items-center relative overflow-hidden shadow-xl my-10">
 
 
 

@@ -2,8 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
 
@@ -12,17 +12,21 @@ const Navbar = () => {
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      <li>
-        <NavLink to={"/updateProfile"}>Update Profile</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/userProfile"}>User Profile</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/updateProfile"}>Update Profile</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/userProfile"}>User Profile</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
   return (
-    <nav className="bg-base-100">
+    <div className="bg-base-100 w-full shadow-2xl z-50 fixed top-0">
       <div className="navbar max-w-[1440px] w-11/12 lg:w-10/12 mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -91,7 +95,7 @@ const Navbar = () => {
         draggable
         pauseOnHover
       />
-    </nav>
+    </div>
   );
 };
 

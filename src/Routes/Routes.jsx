@@ -4,6 +4,8 @@ import Home from "../Pages/Home.jsx";
 import ErrorPage from "../Pages/ErrorPage.jsx";
 import LoginAndRegister from "../Pages/LoginAndRegister.jsx";
 import DetailsPage from "../Pages/DetailsPage.jsx";
+import UpdateProfile from "../Pages/UpdateProfile.jsx";
+import PrivateRoute from "../Private/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateProfile",
-        element: <Home></Home>,
+        element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
       },
       {
         path: "/login",
