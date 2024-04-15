@@ -11,11 +11,10 @@ import AuthProvider from "./Provider/AuthProvider";
 import FakeDataProvider from "./Provider/FakeDataProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  
     <FakeDataProvider>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
     </FakeDataProvider>
-  </React.StrictMode>
 );

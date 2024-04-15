@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext} from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 
 
@@ -10,7 +11,6 @@ const UpdateProfile = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
       } = useForm();
       const onSubmit = (data) => {
@@ -18,7 +18,49 @@ const UpdateProfile = () => {
         
         const updateName = FirstName + ' ' + LastName;
         handleUpdateUserInfo(updateName , photoURL , phoneNumber);
+
+        // window.location.reload();
       }
+       errors?.FirstName  &&  toast.error(`Please enter a valid first name containing only letters, spaces, hyphens, and apostrophes).`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+       errors?.LastName  &&  toast.error(`Please enter a valid last name containing only letters, spaces, hyphens, and apostrophes`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+       errors?.photoURL  &&  toast.error(`Invalid URL format. Please ensure the URL starts with 'http://' or 'https://' and ends with a supported image file extension (.jpg, .jpeg, .png, .gif).`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+       errors?.phoneNumber  &&  toast.error(`Please enter a phone number between 5 and 15 digits long.`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
 
     return (
         <section className="py-10 my-auto dark:bg-gray-900">
@@ -33,10 +75,11 @@ const UpdateProfile = () => {
           Update Profile
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
+          
           {/* Cover Image */}
           <div className="w-full rounded-sm bg-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxob21lfGVufDB8MHx8fDE3MTA0MDE1NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-center bg-no-repeat items-center">
             {/* Profile Image */}
-            <div style={{backgroundImage: `url(${user?.photoURL})`}} className="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full bg-cover bg-center bg-no-repeat">
+            <div style={{backgroundImage: `url(${user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"})`}} className="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full bg-cover bg-center bg-no-repeat">
               <div className="bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-4">
                 <input
                 className="hidden"
@@ -125,8 +168,8 @@ const UpdateProfile = () => {
               <input
                 type="text"
                 id = "firstName"
-                required
-                {...register("FirstName")} 
+                
+                {...register("FirstName" , {pattern : /^[a-zA-Z\-\'\s]+$/ , required:true })} 
                 className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                 placeholder="First Name"
               />
@@ -138,8 +181,7 @@ const UpdateProfile = () => {
               <input
                 id="lastName"
                 type="text"
-                required
-                {...register("LastName")} 
+                {...register("LastName" , {pattern : /^[a-zA-Z\-\'\s]+$/ , required:true })} 
                 className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                 placeholder="Last Name"
               />
@@ -153,11 +195,11 @@ const UpdateProfile = () => {
               <input
                 type="text"
                 id = "photoURL"
-                required
-                {...register("photoURL")} 
+                {...register("photoURL" , { pattern: /^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^/?]+)+\.(?:jpg|jpeg|png|gif)$/ , required: true })} 
                 className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                 placeholder="Photo URL"
               />
+              
             </div>
             <div className="w-full  mb-4 lg:mt-6">
               <label htmlFor="lastName" className=" dark:text-gray-300">
@@ -165,9 +207,8 @@ const UpdateProfile = () => {
               </label>
               <input
                 id="phoneNumber"
-                required
                 type="text"
-                {...register("phoneNumber")} 
+                {...register("phoneNumber" , {pattern: /^\d{5,15}$$/ , required: true})} 
                 className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                 placeholder="Phone Number"
               />

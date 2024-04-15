@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
 
-  console.log(user);
 
   const navLinks = (
     <>
@@ -73,12 +72,14 @@ const Navbar = () => {
         
         <div className="pointer group relative mx-4 flex  w-max justify-center">
             {
-              user && <img className="w-12 cursor-pointer ring-2 ring-white p-1 h-12 rounded-full" src={user?.photoURL}></img> 
+              user && <img className="w-12 cursor-pointer ring-2 ring-white p-1 h-12 rounded-full" src={user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"}></img> 
+
             }
             {/* Hover Text */}
+           
             {
               user && <div className="absolute -bottom-12 cursor-pointer whitespace-nowrap opacity-0 duration-500 hover:hidden group-hover:-bottom-16 group-hover:opacity-100">
-              <p className="rounded-md  px-3 py-2 bg-white text-black border"> {user && user?.displayName}</p>
+              <p className="rounded-md  px-3 py-2 bg-white text-black border"> {user?.displayName}</p>
               <span className="absolute -top-2 left-[50%] h-0 w-0 -translate-x-1/2 -rotate-[45deg] border-b-[20px] border-r-[20px] "></span>
           </div>
             }
