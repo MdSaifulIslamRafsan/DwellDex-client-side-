@@ -21,7 +21,32 @@ const UpdateProfile = () => {
 
         // window.location.reload();
       }
-       errors?.FirstName  &&  toast.error(`Please enter a valid first name containing only letters, spaces, hyphens, and apostrophes).`, {
+         if(errors?.FirstName){
+          toast.error(`Please enter a valid first name containing only letters, spaces, hyphens, and apostrophes`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            })
+         } 
+          else if(errors?.LastName){
+            toast.error(`Please enter a valid last name containing only letters, spaces, hyphens, and apostrophes`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              })
+         } 
+         else if(errors?.photoURL){
+          toast.error(`Invalid URL format. Please ensure the URL starts with 'http://' or 'https://' and ends with a supported image file extension (.jpg, .jpeg, .png, .gif).`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -31,36 +56,22 @@ const UpdateProfile = () => {
         progress: undefined,
         theme: "light",
         })
-       errors?.LastName  &&  toast.error(`Please enter a valid last name containing only letters, spaces, hyphens, and apostrophes`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        })
-       errors?.photoURL  &&  toast.error(`Invalid URL format. Please ensure the URL starts with 'http://' or 'https://' and ends with a supported image file extension (.jpg, .jpeg, .png, .gif).`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        })
-       errors?.phoneNumber  &&  toast.error(`Please enter a phone number between 5 and 15 digits long.`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        })
+         }
+         else if( errors?.phoneNumber){
+          toast.error(`Please enter a phone number between 5 and 15 digits long.`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            })
+         }
+       
+         
+       
 
     return (
         <section className="py-10 my-auto dark:bg-gray-900">

@@ -1,7 +1,9 @@
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -16,6 +18,16 @@ const AuthProvider = ({ children }) => {
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+
+  const handleCreateAccount = (email , password ,displayName , photoURL) => {
+    return createUserWithEmailAndPassword(auth, email, password , displayName , photoURL)
+  
+  }
+const handleLoginForm = (email , password) => {
+  return signInWithEmailAndPassword(auth, email, password)
+} 
+
+
 
   const handleGoogleLogin = () => {
     setLoader(true);
@@ -154,7 +166,10 @@ const AuthProvider = ({ children }) => {
 
   const userInfo = {
     user,
+    setUser,
     loader,
+    handleCreateAccount,
+    handleLoginForm,
     handleGoogleLogin,
     handleLogout,
     handleGithubLogin,

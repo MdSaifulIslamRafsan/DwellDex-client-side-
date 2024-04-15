@@ -2,12 +2,84 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 const LoginAndRegister = () => {
-  const [register, setRegister] = useState(false);
+
+  const [registerForm, setRegisterForm] = useState(false);
   const [passwordType , setPasswordType] = useState('password');
 
-  const {handleGoogleLogin , handleGithubLogin} =  useContext(AuthContext);
+  const { handleCreateAccount , handleLoginForm ,handleGoogleLogin , handleGithubLogin , setUser} =  useContext(AuthContext);
+
+
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const createAccountFormBtn = (data) => {
+   
+    const {name , email , photoURL , password} = data;
+    handleCreateAccount(email , password , name , photoURL)
+    .then(() => {
+      toast.success("Congratulations! Your account has been successfully created.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+        toast.error(errorMessage, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+    });
+  }
+
+  const LoginFormBtn = (data) => {
+    const {_email , _password} = data;
+    handleLoginForm(_email , _password)
+    .then((currentUser) => {
+      
+      const user = currentUser.user;
+      setUser(user);
+      toast.success("You've successfully logged in. Let's get started!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+        toast.error(errorMessage, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+    });
+  }
 
   const handlePassword = () => {
     if (passwordType === 'password') {
@@ -16,6 +88,19 @@ const LoginAndRegister = () => {
       setPasswordType('password');
     }
   }
+  if(errors?.password){
+    toast.error(`Password must be at least 6 characters long and contain at least one uppercase letter and one lowercase letter.`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      })
+   } 
+
 
   return (
     <div className="w-80 rounded-xl md:w-96 lg:w-[800px] mx-auto bg-gray-800 flex items-center relative overflow-hidden shadow-xl my-10">
@@ -23,9 +108,10 @@ const LoginAndRegister = () => {
 
 
       {/* register form  */}
-      <form
+      <form 
+      onSubmit={handleSubmit(createAccountFormBtn)}
         className={`p-8 w-full ${
-          register ? "lg:translate-x-0" : "lg:-translate-x-full hidden lg:block"
+          registerForm ? "lg:translate-x-0" : "lg:-translate-x-full hidden lg:block"
         } duration-500`}
       >
         <h1 className="backdrop-blur-sm text-2xl lg:text-4xl pb-4">Register</h1>
@@ -35,6 +121,7 @@ const LoginAndRegister = () => {
           </label>
           <input
             id="name"
+            {...register("name")}
             type="name"
             placeholder="John Doe"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
@@ -45,6 +132,7 @@ const LoginAndRegister = () => {
           </label>
           <input
             id="u_email"
+            {...register("email")}
             type="u_email"
             placeholder="example@example.com"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
@@ -54,6 +142,7 @@ const LoginAndRegister = () => {
           </label>
           <input
             id="photoURL"
+            {...register("photoURL")}
             type="name"
             placeholder="photoURL"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
@@ -65,6 +154,7 @@ const LoginAndRegister = () => {
           <input
             id="u_password"
             type={passwordType}
+            {...register("password" , {pattern:/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/ , required:true})}
             placeholder=".............."
             min={5}
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
@@ -79,7 +169,7 @@ const LoginAndRegister = () => {
           Already have an account?
           <Link
             onClick={() => {
-              setRegister(!register);
+              setRegisterForm(!registerForm);
             }}
             className="btn-link  font-semibold"
           >
@@ -91,7 +181,7 @@ const LoginAndRegister = () => {
       {/* img */}
       <div
         className={`hidden lg:block absolute w-1/2 h-full top-0 z-10 duration-500 overflow-hidden bg-black/20 ${
-          register
+          registerForm
             ? "translate-x-full rounded-bl-full duration-500"
             : "rounded-br-full"
         }`}
@@ -109,8 +199,9 @@ const LoginAndRegister = () => {
 
       {/* login form */}
       <form
+        onSubmit={handleSubmit(LoginFormBtn)}
         className={`p-8 w-full mr-0 ml-auto duration-500 ${
-          register ? "lg:translate-x-full hidden lg:block" : ""
+          registerForm ? "lg:translate-x-full hidden lg:block" : ""
         }`}
       >
         <h1 className="backdrop-blur-sm px-5 mb-4 mt-8  text-2xl lg:text-4xl pb-4">Login</h1>
@@ -120,6 +211,7 @@ const LoginAndRegister = () => {
           </label>
           <input
             id="_email"
+            {...register("_email")}
             type="email"
             placeholder="example@example.com"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
@@ -131,6 +223,7 @@ const LoginAndRegister = () => {
           <input
             id="_password"
             type={passwordType}
+            {...register("_password")}
             placeholder=".............."
             min={6}
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
@@ -144,7 +237,7 @@ const LoginAndRegister = () => {
           Don&apos;t have an account?
           <Link
             onClick={() => {
-              setRegister(!register);
+              setRegisterForm(!registerForm);
             }}
             className="btn-link font-semibold"
           >
