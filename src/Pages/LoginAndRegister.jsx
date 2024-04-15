@@ -1,14 +1,21 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaGithub } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 
 const LoginAndRegister = () => {
   const [register, setRegister] = useState(false);
+  const [passwordType , setPasswordType] = useState('password');
 
   const {handleGoogleLogin , handleGithubLogin} =  useContext(AuthContext);
 
-
+  const handlePassword = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text');
+    }else{
+      setPasswordType('password');
+    }
+  }
 
   return (
     <div className="w-80 rounded-xl md:w-96 lg:w-[800px] mx-auto bg-gray-800 flex items-center relative overflow-hidden shadow-xl my-10">
@@ -51,16 +58,19 @@ const LoginAndRegister = () => {
             placeholder="photoURL"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
+          <div className="relative">
           <label htmlFor="u_password" className="block">
             Password
           </label>
           <input
             id="u_password"
-            type="u_password"
+            type={passwordType}
             placeholder=".............."
             min={5}
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
+          <span onClick={handlePassword} className="absolute cursor-pointer  top-10 text-xl right-3">{passwordType === 'password' ? <FaEye /> : <FaEyeSlash />}</span>
+          </div>
         </div>
         {/* button type will be submit for handling form submission*/}
        
@@ -114,16 +124,19 @@ const LoginAndRegister = () => {
             placeholder="example@example.com"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
+           <div className="relative">
           <label htmlFor="_password" className="block">
             Password
           </label>
           <input
             id="_password"
-            type="password"
+            type={passwordType}
             placeholder=".............."
-           
+            min={6}
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
+          <span onClick={handlePassword} className="absolute cursor-pointer  top-10 text-xl right-3">{passwordType === 'password' ? <FaEye /> : <FaEyeSlash />}</span>
+          </div>
         </div>
         {/* button type will be submit for handling form submission*/}
         <button className="hover:bg-[#0095FF] hover:animate__animated hover:animate__headShake bg-[#0095ffb7]  hover:scale-95 font-medium text-white w-2/3 px-5 mb-4 mt-8 mx-auto block py-3 rounded-full hover:shadow-xl">Login</button>

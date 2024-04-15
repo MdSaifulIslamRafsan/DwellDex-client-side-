@@ -14,7 +14,7 @@ const PropertiesCard = () => {
             <h2 className="text-3xl text-center font-bold">Featured Properties</h2>
             <p className="lg:w-2/3 text-center mx-auto">Discover our curated selection of featured properties, showcasing the finest homes and apartments available. Find your perfect living space among our handpicked collection.</p>
         </div>
-        <section className="grid mb-20 lg:grid-cols-3 gap-5">
+        <section className="grid mb-20 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {
                 cardData?.map(data => <PropertyCard data={data} key={data?.id}></PropertyCard>)
             }

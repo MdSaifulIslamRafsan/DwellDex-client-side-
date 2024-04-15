@@ -6,6 +6,7 @@ import LoginAndRegister from "../Pages/LoginAndRegister.jsx";
 import DetailsPage from "../Pages/DetailsPage.jsx";
 import UpdateProfile from "../Pages/UpdateProfile.jsx";
 import PrivateRoute from "../Private/PrivateRoute.jsx";
+import UserProfile from "../Pages/UserProfile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/updateProfile",
         element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
+      },
+      {
+        path: "/userProfile",
+        element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
       },
       {
         path: "/login",

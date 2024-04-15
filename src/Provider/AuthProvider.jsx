@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase.config";
@@ -119,12 +120,45 @@ const AuthProvider = ({ children }) => {
       });
   };
 
+
+
+  const handleUpdateUserInfo = (updateName ,updateImg , phoneNumber) => {
+    updateProfile(auth.currentUser, {
+      displayName: updateName, photoURL: updateImg , phoneNumber: phoneNumber
+    }).then(() => {
+      // Profile updated!
+      toast.success("You've been successfully Profile Updated", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }).catch((error) => {
+      // An error occurred
+      const errorMessage = error.message;
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    });
+  }
+
   const userInfo = {
     user,
     loader,
     handleGoogleLogin,
     handleLogout,
     handleGithubLogin,
+    handleUpdateUserInfo
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
