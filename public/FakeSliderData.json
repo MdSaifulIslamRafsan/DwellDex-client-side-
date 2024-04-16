@@ -1,32 +1,32 @@
- [
-    {
-      "img": "https://i.ibb.co/SNnKRGK/istockphoto-178559422-170667a.webp",
-      "estate_title": "Cozy Cottage Retreat",
-      "description": "Charming single-family home located in a quiet suburban neighborhood. Spacious living areas and a private backyard make it perfect for relaxation. Ideal for families seeking tranquility and comfort."
-    },
-    {
-      "img": "https://i.ibb.co/Qng1nVt/photo-1619542402915-dcaf30e4e2a1.jpg",
-      "estate_title": "Urban Townhouse Haven",
-      "description": "Modern townhouse offering urban sophistication and convenience. Features sleek design elements and multiple levels, including a rooftop terrace. Ideal for those seeking a contemporary lifestyle in the heart of the city."
-    },
-    {
-      "img": "https://i.ibb.co/G9hVkRy/istockphoto-1367813999-170667a.webp",
-      "estate_title": "Cityscape Apartment Living",
-      "description": "Luxurious apartment with panoramic city views and resort-style amenities. Spacious living areas with floor-to-ceiling windows provide plenty of natural light. Conveniently located in the bustling metropolitan area."
-    },
-    {
-      "img": "https://i.ibb.co/S0pcCMH/photo-1624343385944-b99336163b50.jpg",
-      "estate_title": "Campus Comfort Quarters",
-      "description": "Student-friendly housing community offering comfort and convenience. Cozy and affordable accommodations near universities. Furnished rooms with shared kitchen, study lounge, and laundry facilities."
-    },
-    {
-      "img": "https://i.ibb.co/Btzhrz9/istockphoto-1448774140-170667a.webp",
-      "estate_title": "Serene Retirement Retreat",
-      "description": "Tranquil senior living community offering comfort and companionship. Nestled in a serene natural setting with community center and walking trails. Provides a peaceful retreat for retirees seeking an active lifestyle."
-    },
-    {
-      "img": "https://i.ibb.co/GdZbMkJ/istockphoto-861963462-170667a.webp",
-      "estate_title": "Modern Multi-family Complex",
-      "description": "Contemporary apartment building featuring modern design and upscale amenities. Offers spacious units with open-concept layouts and high-end finishes. Includes fitness center, parking garage, and community garden."
-    }
+[
+  {
+    "img": "https://i.ibb.co/SNnKRGK/istockphoto-178559422-170667a.webp",
+    "estate_title": "Cozy Cottage Retreat",
+    "description": "Escape to this charming single-family home nestled in a serene suburban neighborhood. With spacious living areas and a private backyard, it's the perfect haven for relaxation and family gatherings."
+  },
+  {
+    "img": "https://i.ibb.co/Qng1nVt/photo-1619542402915-dcaf30e4e2a1.jpg",
+    "estate_title": "Urban Townhouse Haven",
+    "description": "Experience urban living at its finest in this modern townhouse. Boasting sleek design elements and a rooftop terrace, it offers contemporary sophistication and convenience in the heart of the city."
+  },
+  {
+    "img": "https://i.ibb.co/G9hVkRy/istockphoto-1367813999-170667a.webp",
+    "estate_title": "Cityscape Apartment Living",
+    "description": "Indulge in luxurious city living with panoramic views and resort-style amenities in this stunning apartment. Its spacious interiors and floor-to-ceiling windows create an inviting ambiance, perfect for those seeking metropolitan comfort."
+  },
+  {
+    "img": "https://i.ibb.co/S0pcCMH/photo-1624343385944-b99336163b50.jpg",
+    "estate_title": "Campus Comfort Quarters",
+    "description": "Discover comfortable and affordable student housing near universities in this cozy community. Furnished rooms, shared facilities, and a convenient location make it an ideal choice for students seeking a supportive living environment."
+  },
+  {
+    "img": "https://i.ibb.co/Btzhrz9/istockphoto-1448774140-170667a.webp",
+    "estate_title": "Serene Retirement Retreat",
+    "description": "Embrace tranquility in this peaceful senior living community surrounded by nature. With a community center and walking trails, it offers companionship and relaxation for retirees seeking an active and fulfilling lifestyle."
+  },
+  {
+    "img": "https://i.ibb.co/GdZbMkJ/istockphoto-861963462-170667a.webp",
+    "estate_title": "Modern Multi-family Complex",
+    "description": "Elevate your lifestyle in this contemporary apartment building featuring upscale amenities and spacious units. From open-concept layouts to a fitness center and community garden, it offers modern living at its best."
+  }
 ]

@@ -7,6 +7,7 @@ import DetailsPage from "../Pages/DetailsPage.jsx";
 import UpdateProfile from "../Pages/UpdateProfile.jsx";
 import PrivateRoute from "../Private/PrivateRoute.jsx";
 import UserProfile from "../Pages/UserProfile.jsx";
+import ContactPage from "../Pages/ContactPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
+      },
+      {
+        path: "/contact",
+        element: <PrivateRoute><ContactPage></ContactPage></PrivateRoute>,
       },
     ],
   },

@@ -21,6 +21,9 @@ console.log(user);
           <li>
             <NavLink to={"/userProfile"}>User Profile</NavLink>
           </li>
+          <li>
+            <NavLink to={"/contact"}>Contact Us</NavLink>
+          </li>
         </>
       )}
     </>
@@ -59,7 +62,7 @@ console.log(user);
             data-aos="fade-right"
             data-aos-duration="1000"
             data-aos-easing="ease-in-out"
-            className=" font-bold text-xl"
+            className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400 text-2xl font-black"
           >
             DwellDex
           </Link>

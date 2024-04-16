@@ -16,7 +16,7 @@ const Footer = () => {
               href="#"
               className="flex justify-center space-x-3 lg:justify-start"
             >
-              <span className="self-center text-2xl font-semibold ">
+              <span className="self-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400 text-2xl font-black">
                 DwellDex
               </span>
             </a>

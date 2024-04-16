@@ -9,6 +9,7 @@ const Home = () => {
         <title>DwellDex - Home</title>
       </Helmet>
       <Slider></Slider>
+      
       <PropertiesCard></PropertiesCard>
     </div>
   );
