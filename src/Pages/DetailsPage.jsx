@@ -2,18 +2,21 @@ import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { FakeDataContext } from '../Provider/FakeDataProvider';
 import { FaBuildingColumns, FaLocationDot, FaSackDollar } from 'react-icons/fa6';
+
 import { MdSell } from 'react-icons/md';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
+import { MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
+import "leaflet/dist/leaflet.css"
 
 const DetailsPage = () => {
     const {id} = useParams();
     const {cardData} = useContext(FakeDataContext);
     
     const isExist = cardData.find(data => data?.id === id);
-    
 
-
+  
+    const position = [ isExist?.location?.lat,  isExist?.location?.lng]
   return (
         
     
@@ -22,7 +25,7 @@ const DetailsPage = () => {
         <title>DwellDex - Details - {id}</title>
         </Helmet>
         <div className=" mx-auto space-y-6 sm:space-y-12">
-          <a href='#'
+          <div
             className="block  gap-3 mx-auto sm:max-w-full group  lg:grid lg:grid-cols-12"
           >
             <img
@@ -43,7 +46,7 @@ const DetailsPage = () => {
               <p className='flex gap-2 items-center '> <FaSackDollar />{isExist?.price}</p>
               <p className='flex gap-2 items-center'><FaBuildingColumns /> {isExist?.area}</p>
               <p className='flex gap-2 items-center'><MdSell /> {isExist?.status}</p>
-              <p className='flex gap-2 items-center'><FaLocationDot /> {isExist?.location}</p>
+              <p className='flex gap-2 items-center'><FaLocationDot /> {isExist?.location?.name}</p>
               <div className='flex items-center text-xs md:text-base gap-2'>
               <FaCheckCircle />
               {
@@ -52,7 +55,23 @@ const DetailsPage = () => {
               </div>
               
             </div>
-          </a>
+          </div>
+        </div>
+        <div className='mt-20'>
+        <div>
+      <MapContainer className="h-[400px] rounded-lg" center={position} zoom={15} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
+      ,
+    </div>
         </div>
       </section>
     

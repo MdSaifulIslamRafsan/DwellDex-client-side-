@@ -62,8 +62,9 @@ console.log(user);
             data-aos="fade-right"
             data-aos-duration="1000"
             data-aos-easing="ease-in-out"
-            className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400 text-2xl font-black"
+            className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400  lg:text-2xl font-black flex gap-1"
           >
+             <img className="hidden lg:block w-8" src="https://i.ibb.co/GPQ8Jdg/Logo-Architecto-Dark-1.png" alt="" />
             DwellDex
           </Link>
         </div>

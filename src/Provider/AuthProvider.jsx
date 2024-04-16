@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updatePhoneNumber,
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
@@ -24,12 +25,15 @@ const AuthProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   const handleCreateAccount = (email, password, displayName, photoURL) => {
+    
+    updateProfile(auth.currentUser, {
+      displayName: displayName,
+      photoURL: photoURL,
+    })
     return createUserWithEmailAndPassword(
       auth,
       email,
       password,
-      displayName,
-      photoURL
     );
   };
   const handleLoginForm = (email, password) => {
@@ -142,10 +146,18 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleUpdateUserInfo = (updateName, updateImg, phoneNumber) => {
+
+    updatePhoneNumber(auth.currentUser,  phoneNumber)
+    .then(() => {
+      console.log('seccess');
+      // ...
+    }).catch((error) => {
+      console.log(error?.message);
+    });
+
     updateProfile(auth.currentUser, {
       displayName: updateName,
       photoURL: updateImg,
-      phoneNumber: phoneNumber,
     })
       .then(() => {
         // Profile updated!

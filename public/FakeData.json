@@ -1,5 +1,5 @@
 [
-    {
+  {
       "estate_title": "Cozy Cottage Retreat",
       "id": "1",
       "img": "https://i.ibb.co/SNnKRGK/istockphoto-178559422-170667a.webp",
@@ -8,10 +8,14 @@
       "price": "$300,000",
       "status": "sale",
       "area": "1800 sq ft",
-      "location": "Suburban Paradise, USA",
-      "facilities": ["living room", "kitchen", "backyard"]
-    },
-    {
+      "facilities": ["living room", "kitchen", "backyard"],
+      "location": {
+          "name": "Suburban Paradise, USA",
+          "lat": 39.752080,
+          "lng": -121.621970
+      }
+  },
+  {
       "estate_title": "Urban Townhouse Haven",
       "id": "2",
       "img": "https://i.ibb.co/S0pcCMH/photo-1624343385944-b99336163b50.jpg",
@@ -20,10 +24,14 @@
       "price": "$500,000",
       "status": "sale",
       "area": "2200 sq ft",
-      "location": "Downtown Metropolis, USA",
-      "facilities": ["living room", "rooftop terrace", "garage"]
-    },
-    {
+      "facilities": ["living room", "rooftop terrace", "garage"],
+      "location": {
+          "name": "Downtown Metropolis, USA",
+          "lat": 37.151110,
+          "lng": -88.731880
+      }
+  },
+  {
       "estate_title": "Cityscape Apartment Living",
       "id": "3",
       "img": "https://i.ibb.co/Qng1nVt/photo-1619542402915-dcaf30e4e2a1.jpg",
@@ -32,10 +40,14 @@
       "price": "$2,500/month",
       "status": "rent",
       "area": "1200 sq ft",
-      "location": "Metropolitan Heights, USA",
-      "facilities": ["living room", "fitness center", "swimming pool"]
-    },
-    {
+      "facilities": ["living room", "fitness center", "swimming pool"],
+      "location": {
+          "name": "Metropolitan Heights, USA",
+          "lat": 42.457430,
+          "lng": -90.663880
+      }
+  },
+  {
       "estate_title": "Campus Comfort Quarters",
       "id": "4",
       "img": "https://i.ibb.co/G9hVkRy/istockphoto-1367813999-170667a.webp",
@@ -44,10 +56,14 @@
       "price": "$800/month per room",
       "status": "rent",
       "area": "150 sq ft per room",
-      "location": "University District, USA",
-      "facilities": ["shared kitchen", "study lounge", "laundry room"]
-    },
-    {
+      "facilities": ["shared kitchen", "study lounge", "laundry room"],
+      "location": {
+          "name": "University District, USA",
+          "lat": 42.182620,
+          "lng": -122.692300
+      }
+  },
+  {
       "estate_title": "Serene Retirement Retreat",
       "id": "5",
       "img": "https://i.ibb.co/Btzhrz9/istockphoto-1448774140-170667a.webp",
@@ -56,20 +72,27 @@
       "price": "$3,000/month",
       "status": "rent",
       "area": "1600 sq ft (common areas)",
-      "location": "Tranquil Meadows, USA",
-      "facilities": ["community center", "walking trails", "gardens"]
-    },
-    {
+      "facilities": ["community center", "walking trails", "gardens"],
+      "location": {
+          "name": "Tranquil Meadows, USA",
+          "lat": 41.0858393,
+          "lng": -80.6781448980131
+      }
+  },
+  {
       "estate_title": "Modern Multi-family Complex",
       "id": "6",
       "img": "https://i.ibb.co/GdZbMkJ/istockphoto-861963462-170667a.webp",
-      "segment_name": "vacation rentals",
+      "segment_name": "Vacation rentals",
       "description": "Contemporary apartment building featuring modern design and upscale amenities. This multi-family complex offers a variety of spacious units with open-concept layouts and high-end finishes. Residents can enjoy access to a fitness center, parking garage, and a lush community garden. Conveniently located in a suburban neighborhood, this complex provides residents with a comfortable and convenient lifestyle.",
       "price": "$1,200,000",
       "status": "sale",
       "area": "10,000 sq ft (building area)",
-      "location": "Suburban Heights, USA",
-      "facilities": ["fitness center", "parking garage", "garden"]
-    }
-  ]
-  
+      "facilities": ["fitness center", "parking garage", "garden"],
+      "location": {
+          "name": "Suburban Heights, USA",
+          "lat": 29.6680226,
+          "lng": -82.3914954
+      }
+  }
+]

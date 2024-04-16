@@ -41,7 +41,7 @@ const PropertyCard = ({ data }) => {
             )}
           </p>
           <p className="flex items-center gap-2">
-            <FaLocationArrow></FaLocationArrow> {location}
+            <FaLocationArrow></FaLocationArrow> {location?.name}
           </p>
           <Link to={`/details/${id}`}
             className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium  transition duration-300 ease-out border-2 border-[#0095ff] w-full rounded-2xl shadow-md group"

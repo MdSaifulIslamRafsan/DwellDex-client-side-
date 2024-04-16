@@ -1,0 +1,44 @@
+[
+    {
+        "name": "John Doe",
+        "designation": "Single-family homeowner",
+        "description": "Living in a single-family home offers the ultimate sense of privacy and freedom. From spacious interiors to a backyard oasis, it's the perfect setting for creating lifelong memories with family and friends.",
+        "keyWord": "Child",
+        "relatedComment": "Our single-family home is our sanctuary. It's where we can truly be ourselves, whether it's hosting family gatherings or enjoying quiet evenings under the stars."
+    },
+    {
+        "name": "Jane Doe",
+        "designation": "Townhouse dweller",
+        "description": "Townhouse living combines the best of urban convenience with suburban charm. With modern amenities and a close-knit community, it's the perfect blend of style and comfort for modern living.",
+        "keyWord": "Gentlewoman",
+        "relatedComment": "Our townhouse feels like a hidden gem in the heart of the city. It's where we can enjoy the excitement of urban life while still having a cozy retreat to call our own."
+    },
+    {
+        "name": "Shiyam Sarker",
+        "designation": "Apartment resident",
+        "description": "Apartment living offers a vibrant and dynamic lifestyle in the heart of the city. With stunning views and upscale amenities, it's the ideal choice for those seeking luxury and convenience.",
+        "keyWord": "Gentleman",
+        "relatedComment": "Our apartment feels like a luxurious escape from the hustle and bustle of city life. It's where we can relax and recharge after a busy day, surrounded by modern comforts and breathtaking views."
+    },
+    {
+        "name": "Bob Smith",
+        "designation": "Student resident",
+        "description": "Student housing provides a supportive and enriching environment for academic success. From shared study spaces to social activities, it's the perfect place to thrive academically and socially.",
+        "keyWord": "Child",
+        "relatedComment": "Living in student housing has been an unforgettable experience. It's where I've made lifelong friends and created cherished memories that will last a lifetime."
+    },
+    {
+        "name": "Eva Williams",
+        "designation": "Senior living resident",
+        "description": "Senior living communities offer a vibrant and fulfilling lifestyle for retirees. With resort-style amenities and a supportive community, it's the perfect place to enjoy life to the fullest.",
+        "keyWord": "Individual",
+        "relatedComment": "Senior living has exceeded all of our expectations. It's where we've found new friends, exciting activities, and a sense of belonging that we never knew we were missing."
+    },
+    {
+        "name": "Chris Brown",
+        "designation": "Vacation rental guest",
+        "description": "Vacation rentals provide a home away from home for travelers seeking comfort and convenience. With fully-equipped kitchens and spacious accommodations, it's the perfect choice for a relaxing getaway.",
+        "keyWord": "Boy",
+        "relatedComment": "Staying in a vacation rental is like having all the comforts of home, but with an added touch of luxury and relaxation. It's where we can truly unwind and enjoy quality time with loved ones."
+    }
+]

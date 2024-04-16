@@ -9,70 +9,71 @@ const UpdateProfile = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     const { FirstName, LastName, phoneNumber, photoURL } = data;
-
+    if (!/^[a-zA-Z\-\'\s]+$/.test(FirstName)) {
+      return toast.error(
+        `Please enter a valid first name containing only letters, spaces, hyphens, and apostrophes`,
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    }  
+    if (!/^[a-zA-Z\-\'\s]+$/.test(LastName)) {
+      return toast.error(
+        `Please enter a valid last name containing only letters, spaces, hyphens, and apostrophes`,
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    } 
+     if (!/^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^/?]+)+\.(?:jpg|jpeg|png|gif)$/.test(photoURL)) {
+      return toast.error(
+        `Invalid URL format. Please ensure the URL starts with 'http://' or 'https://' and ends with a supported image file extension (.jpg, .jpeg, .png, .gif).`,
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    } 
+     if (!/^\d{5,15}$$/.test(phoneNumber)) {
+      return toast.error(`Please enter a phone number between 5 and 15 digits long.`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     const updateName = FirstName + " " + LastName;
     handleUpdateUserInfo(updateName, photoURL, phoneNumber);
 
-    // window.location.reload();
   };
-  if (errors?.FirstName) {
-    toast.error(
-      `Please enter a valid first name containing only letters, spaces, hyphens, and apostrophes`,
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }
-    );
-  } else if (errors?.LastName) {
-    toast.error(
-      `Please enter a valid last name containing only letters, spaces, hyphens, and apostrophes`,
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }
-    );
-  } else if (errors?.photoURL) {
-    toast.error(
-      `Invalid URL format. Please ensure the URL starts with 'http://' or 'https://' and ends with a supported image file extension (.jpg, .jpeg, .png, .gif).`,
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }
-    );
-  } else if (errors?.phoneNumber) {
-    toast.error(`Please enter a phone number between 5 and 15 digits long.`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  }
+
 
   return (
     <section className="py-10 my-auto dark:bg-gray-900">
@@ -191,10 +192,7 @@ const UpdateProfile = () => {
                   <input
                     type="text"
                     id="firstName"
-                    {...register("FirstName", {
-                      pattern: /^[a-zA-Z\-\'\s]+$/,
-                      required: true,
-                    })}
+                    {...register("FirstName")}
                     className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                     placeholder="First Name"
                   />
@@ -206,10 +204,7 @@ const UpdateProfile = () => {
                   <input
                     id="lastName"
                     type="text"
-                    {...register("LastName", {
-                      pattern: /^[a-zA-Z\-\'\s]+$/,
-                      required: true,
-                    })}
+                    {...register("LastName")}
                     className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                     placeholder="Last Name"
                   />
@@ -223,11 +218,7 @@ const UpdateProfile = () => {
                   <input
                     type="text"
                     id="photoURL"
-                    {...register("photoURL", {
-                      pattern:
-                        /^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^/?]+)+\.(?:jpg|jpeg|png|gif)$/,
-                      required: true,
-                    })}
+                    {...register("photoURL")}
                     className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                     placeholder="Photo URL"
                   />
@@ -239,10 +230,7 @@ const UpdateProfile = () => {
                   <input
                     id="phoneNumber"
                     type="text"
-                    {...register("phoneNumber", {
-                      pattern: /^\d{5,15}$$/,
-                      required: true,
-                    })}
+                    {...register("phoneNumber")}
                     className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                     placeholder="Phone Number"
                   />

@@ -28,7 +28,7 @@ const LoginAndRegister = () => {
   const createAccountFormBtn = (data) => {
     const { name, email, photoURL, password } = data;
     if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
-      toast.error(
+      return toast.error(
         "Password must be at least 6 characters long and contain at least one uppercase letter and one lowercase letter.",
         {
           position: "top-right",
@@ -44,6 +44,7 @@ const LoginAndRegister = () => {
     }
     handleCreateAccount(email, password, name, photoURL)
       .then(() => {
+        navigate(location?.state ? location?.state : '/' );
         toast.success(
           "Congratulations! Your account has been successfully created.",
           {
@@ -176,6 +177,7 @@ const LoginAndRegister = () => {
               type={passwordType}
               {...register("password")}
               placeholder=".............."
+              
               min={5}
               className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
             />

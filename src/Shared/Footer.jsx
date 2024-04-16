@@ -17,7 +17,8 @@ const Footer = () => {
               className="flex justify-center space-x-3 lg:justify-start"
             >
               <span className="self-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400 text-2xl font-black">
-                DwellDex
+              <img className="w-10 mx-auto" src="https://i.ibb.co/GPQ8Jdg/Logo-Architecto-Dark-1.png" alt="" />
+               DwellDex
               </span>
             </a>
           </div>
@@ -74,10 +75,9 @@ const Footer = () => {
             </div>
 
             <div
-              data-aos="fade-left"
-              data-aos-duration="1500"
-              data-aos-easing="ease-in"
-              className="space-y-3 "
+             data-aos="fade-down"
+             data-aos-easing="linear"
+             data-aos-duration="1500"
             >
               <h1 className="uppercase font-bold ">Social media</h1>
               <div className="flex justify-start space-x-3">
