@@ -4,6 +4,7 @@ import { FakeDataContext } from '../Provider/FakeDataProvider';
 import { FaBuildingColumns, FaLocationDot, FaSackDollar } from 'react-icons/fa6';
 import { MdSell } from 'react-icons/md';
 import { FaCheckCircle } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const DetailsPage = () => {
     const {id} = useParams();
@@ -17,6 +18,9 @@ const DetailsPage = () => {
         
     
       <section className="max-w-[1440px] mx-auto w-11/12 lg:w-10/12 my-20 ">
+         <Helmet>
+        <title>DwellDex - Details - {id}</title>
+        </Helmet>
         <div className=" mx-auto space-y-6 sm:space-y-12">
           <a href='#'
             className="block  gap-3 mx-auto sm:max-w-full group  lg:grid lg:grid-cols-12"

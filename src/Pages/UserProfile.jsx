@@ -1,12 +1,17 @@
 import { useContext } from "react";
 import { AuthContext } from "./../Provider/AuthProvider";
+import moment from "moment";
+import { Helmet } from "react-helmet-async";
 
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
 
   return (
-    <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+    <div className="max-w-[1440px] w-11/12 lg:w-10/12 flex items-center py-10 flex-wrap mx-auto my-32 lg:my-0">
+       <Helmet>
+        <title>DwellDex - User Profile</title>
+      </Helmet>
       {/*Main Col*/}
       <div
         id="profile"
@@ -23,6 +28,12 @@ const UserProfile = () => {
           </div>
           <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
             <dl className="sm:divide-y sm:divide-gray-200">
+              <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">User ID</dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                  {user?.uid || 'No'}
+                </dd>
+              </div>
               <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt className="text-sm font-medium text-gray-500">Full name</dt>
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -45,6 +56,14 @@ const UserProfile = () => {
                 {user?.phoneNumber || 'No'}
                 </dd>
               </div>
+              <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">
+                  Last Login Time
+                </dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                {moment(user?.metadata?.lastSignInTime).format("DD MMMM YYYY hh:mm:ss") || 'No'}
+                </dd>
+              </div>
             </dl>
           </div>
         </div>
@@ -54,13 +73,8 @@ const UserProfile = () => {
         {/* Big profile image for side bar (desktop) */}
         <img
           src={user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"}
-          className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
+          className="rounded-none h-[550px] lg:rounded-lg shadow-2xl hidden lg:block"
         />
-        {/* Image from: http://unsplash.com/photos/MP0IUfwrn0A */}
-      </div>
-      {/* Pin to top right corner */}
-      <div className="absolute top-0 right-0 h-12 w-18 p-4">
-        <button className="js-change-theme focus:outline-none">🌙</button>
       </div>
     </div>
   );

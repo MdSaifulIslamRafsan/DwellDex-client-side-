@@ -3,39 +3,62 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import { toast } from 'react-toastify';
-
+import { toast } from "react-toastify";
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 const LoginAndRegister = () => {
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const [registerForm, setRegisterForm] = useState(false);
-  const [passwordType , setPasswordType] = useState('password');
+  const [passwordType, setPasswordType] = useState("password");
 
-  const { handleCreateAccount , handleLoginForm ,handleGoogleLogin , handleGithubLogin , setUser} =  useContext(AuthContext);
-
-
+  const {
+    handleCreateAccount,
+    handleLoginForm,
+    handleGoogleLogin,
+    handleGithubLogin,
+    setUser,
+  } = useContext(AuthContext);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
+
   const createAccountFormBtn = (data) => {
-   
-    const {name , email , photoURL , password} = data;
-    handleCreateAccount(email , password , name , photoURL)
-    .then(() => {
-      toast.success("Congratulations! Your account has been successfully created.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
+    const { name, email, photoURL, password } = data;
+    if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
+      toast.error(
+        "Password must be at least 6 characters long and contain at least one uppercase letter and one lowercase letter.",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    }
+    handleCreateAccount(email, password, name, photoURL)
+      .then(() => {
+        toast.success(
+          "Congratulations! Your account has been successfully created.",
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
         toast.error(errorMessage, {
           position: "top-right",
           autoClose: 5000,
@@ -46,28 +69,36 @@ const LoginAndRegister = () => {
           progress: undefined,
           theme: "light",
         });
-    });
-  }
+      });
+  };
+
+
+  const {
+    register : login,
+    handleSubmit : handleLogin,
+    
+  } = useForm();
+
 
   const LoginFormBtn = (data) => {
-    const {_email , _password} = data;
-    handleLoginForm(_email , _password)
-    .then((currentUser) => {
-      
-      const user = currentUser.user;
-      setUser(user);
-      toast.success("You've successfully logged in. Let's get started!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
+    const { _email, _password } = data;
+    handleLoginForm(_email, _password)
+      .then((currentUser) => {
+        const user = currentUser.user;
+        navigate(location?.state ? location?.state : '/' );
+        setUser(user);
+        toast.success("You've successfully logged in. Let's get started!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
         toast.error(errorMessage, {
           position: "top-right",
           autoClose: 5000,
@@ -78,40 +109,29 @@ const LoginAndRegister = () => {
           progress: undefined,
           theme: "light",
         });
-    });
-  }
+      });
+  };
 
   const handlePassword = () => {
-    if (passwordType === 'password') {
-      setPasswordType('text');
-    }else{
-      setPasswordType('password');
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else {
+      setPasswordType("password");
     }
-  }
-  if(errors?.password){
-    toast.error(`Password must be at least 6 characters long and contain at least one uppercase letter and one lowercase letter.`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      })
-   } 
+  };
+
+
 
 
   return (
     <div className="w-80 rounded-xl md:w-96 lg:w-[800px] mx-auto bg-gray-800 flex items-center relative overflow-hidden shadow-xl my-10">
-
-
-
       {/* register form  */}
-      <form 
-      onSubmit={handleSubmit(createAccountFormBtn)}
+      <form
+        onSubmit={handleSubmit(createAccountFormBtn)}
         className={`p-8 w-full ${
-          registerForm ? "lg:translate-x-0" : "lg:-translate-x-full hidden lg:block"
+          registerForm
+            ? "lg:translate-x-0"
+            : "lg:-translate-x-full hidden lg:block"
         } duration-500`}
       >
         <h1 className="backdrop-blur-sm text-2xl lg:text-4xl pb-4">Register</h1>
@@ -126,7 +146,7 @@ const LoginAndRegister = () => {
             placeholder="John Doe"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
-        
+
           <label htmlFor="u_email" className="block">
             Email
           </label>
@@ -137,7 +157,7 @@ const LoginAndRegister = () => {
             placeholder="example@example.com"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
-            <label htmlFor="name" className="block">
+          <label htmlFor="name" className="block">
             photoURL
           </label>
           <input
@@ -148,23 +168,31 @@ const LoginAndRegister = () => {
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
           <div className="relative">
-          <label htmlFor="u_password" className="block">
-            Password
-          </label>
-          <input
-            id="u_password"
-            type={passwordType}
-            {...register("password" , {pattern:/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/ , required:true})}
-            placeholder=".............."
-            min={5}
-            className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
-          />
-          <span onClick={handlePassword} className="absolute cursor-pointer  top-10 text-xl right-3">{passwordType === 'password' ? <FaEye /> : <FaEyeSlash />}</span>
+            <label htmlFor="u_password" className="block">
+              Password
+            </label>
+            <input
+              id="u_password"
+              type={passwordType}
+              {...register("password")}
+              placeholder=".............."
+              min={5}
+              className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
+            />
+            <span
+              onClick={handlePassword}
+              type="button"
+              className="absolute cursor-pointer  top-10 text-xl right-3"
+            >
+              {passwordType === "password" ? <FaEye /> : <FaEyeSlash />}
+            </span>
           </div>
         </div>
         {/* button type will be submit for handling form submission*/}
-       
-        <button className="hover:bg-[#0095FF] hover:animate__animated hover:animate__headShake bg-[#0095ffb7]  hover:scale-95 font-medium text-white w-2/3 px-5 mb-4 mt-8 mx-auto block py-3 rounded-full hover:shadow-xl   ">Register</button>
+
+        <button className="hover:bg-[#0095FF] hover:animate__animated hover:animate__headShake bg-[#0095ffb7]  hover:scale-95 font-medium text-white w-2/3 px-5 mb-4 mt-8 mx-auto block py-3 rounded-full hover:shadow-xl   ">
+          Register
+        </button>
         <p className="mb-3 text-center">
           Already have an account?
           <Link
@@ -176,7 +204,6 @@ const LoginAndRegister = () => {
             Login
           </Link>
         </p>
-       
       </form>
       {/* img */}
       <div
@@ -193,46 +220,51 @@ const LoginAndRegister = () => {
         />
       </div>
 
-
-
-
-
       {/* login form */}
       <form
-        onSubmit={handleSubmit(LoginFormBtn)}
+        onSubmit={handleLogin(LoginFormBtn)}
         className={`p-8 w-full mr-0 ml-auto duration-500 ${
           registerForm ? "lg:translate-x-full hidden lg:block" : ""
         }`}
       >
-        <h1 className="backdrop-blur-sm px-5 mb-4 mt-8  text-2xl lg:text-4xl pb-4">Login</h1>
+        <h1 className="backdrop-blur-sm px-5 mb-4 mt-8  text-2xl lg:text-4xl pb-4">
+          Login
+        </h1>
         <div className="space-y-5">
           <label htmlFor="_email" className="block">
             Email
           </label>
           <input
             id="_email"
-            {...register("_email")}
+            {...login("_email")}
             type="email"
             placeholder="example@example.com"
             className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
           />
-           <div className="relative">
-          <label htmlFor="_password" className="block">
-            Password
-          </label>
-          <input
-            id="_password"
-            type={passwordType}
-            {...register("_password")}
-            placeholder=".............."
-            min={6}
-            className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
-          />
-          <span onClick={handlePassword} className="absolute cursor-pointer  top-10 text-xl right-3">{passwordType === 'password' ? <FaEye /> : <FaEyeSlash />}</span>
+          <div className="relative">
+            <label htmlFor="_password" className="block">
+              Password
+            </label>
+            <input
+              id="_password"
+              type={passwordType}
+              {...login("_password")}
+              placeholder=".............."
+              min={6}
+              className="p-3 block w-full outline-none border rounded-md invalid:border-red-700 valid:border-black"
+            />
+            <span
+              onClick={handlePassword}
+              className="absolute cursor-pointer  top-10 text-xl right-3"
+            >
+              {passwordType === "password" ? <FaEye /> : <FaEyeSlash />}
+            </span>
           </div>
         </div>
         {/* button type will be submit for handling form submission*/}
-        <button className="hover:bg-[#0095FF] hover:animate__animated hover:animate__headShake bg-[#0095ffb7]  hover:scale-95 font-medium text-white w-2/3 px-5 mb-4 mt-8 mx-auto block py-3 rounded-full hover:shadow-xl">Login</button>
+        <button className="hover:bg-[#0095FF] hover:animate__animated hover:animate__headShake bg-[#0095ffb7]  hover:scale-95 font-medium text-white w-2/3 px-5 mb-4 mt-8 mx-auto block py-3 rounded-full hover:shadow-xl">
+          Login
+        </button>
         <p className="mb-3 text-center">
           Don&apos;t have an account?
           <Link
@@ -246,7 +278,7 @@ const LoginAndRegister = () => {
         </p>
         <hr />
         <button
-        onClick={handleGoogleLogin}
+          onClick={handleGoogleLogin}
           type="button"
           className="py-4 hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto block shadow-lg border rounded-md border-black"
         >
@@ -304,7 +336,7 @@ const LoginAndRegister = () => {
           Continue with Google
         </button>
         <button
-        onClick={handleGithubLogin}
+          onClick={handleGithubLogin}
           type="button"
           className="py-4 flex  hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto item-center gap-2  shadow-lg border rounded-md border-black"
         >

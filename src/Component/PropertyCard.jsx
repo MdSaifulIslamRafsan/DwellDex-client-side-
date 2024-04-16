@@ -7,6 +7,7 @@ const PropertyCard = ({ data }) => {
 
   return (
     <div className="p-4 shadow-2xl border rounded-xl">
+      
       <div className="flex  justify-between pb-4 border-bottom">
         <div className="flex w-full justify-between">
           <a rel="noopener noreferrer" href="#" className="mb-0 capitalize ">
