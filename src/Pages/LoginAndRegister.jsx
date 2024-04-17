@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import auth from "../Firebase.config";
 const LoginAndRegister = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,6 +29,57 @@ const LoginAndRegister = () => {
 
   const createAccountFormBtn = (data) => {
     const { name, email, photoURL, password } = data;
+    if (!/^[a-zA-Z\-\'\s]+$/.test(name)) {
+      return toast.error(
+        `Please enter a valid name containing only letters, spaces, hyphens, and apostrophes`,
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+
+    }  
+
+    if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)){
+      return toast.error(
+        "Invalid email format. Please use the format: example@example.com",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    }
+
+
+    if (!/^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^/?]+)+\.(?:jpg|jpeg|png|gif)$/.test(photoURL)) {
+      return toast.error(
+        `Invalid URL format. Please ensure the URL starts with 'http://' or 'https://' and ends with a supported image file extension (.jpg, .jpeg, .png, .gif).`,
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    } 
+    
+
     if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
       return toast.error(
         "Password must be at least 6 characters long and contain at least one uppercase letter and one lowercase letter.",
@@ -42,9 +95,13 @@ const LoginAndRegister = () => {
         }
       );
     }
-    handleCreateAccount(email, password, name, photoURL)
+    handleCreateAccount(email, password)
       .then(() => {
         navigate(location?.state ? location?.state : '/' );
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photoURL,
+        })
         toast.success(
           "Congratulations! Your account has been successfully created.",
           {
@@ -83,6 +140,37 @@ const LoginAndRegister = () => {
 
   const LoginFormBtn = (data) => {
     const { _email, _password } = data;
+    if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(_email)){
+      return toast.error(
+        "Invalid email format. Please use the format: example@example.com",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    }
+    if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(_password)){
+      return toast.error(
+        "Password must be at least 6 characters long and contain at least one uppercase letter and one lowercase letter.",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+    }
+
     handleLoginForm(_email, _password)
       .then((currentUser) => {
         const user = currentUser.user;

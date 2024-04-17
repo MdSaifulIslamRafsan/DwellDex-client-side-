@@ -12,19 +12,15 @@ const Navbar = () => {
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      {user && (
-        <>
-          <li>
-            <NavLink to={"/updateProfile"}>Update Profile</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/userProfile"}>User Profile</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/contact"}>Contact Us</NavLink>
-          </li>
-        </>
-      )}
+      <li>
+        <NavLink to={"/updateProfile"}>Update Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/userProfile"}>User Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/contact"}>Contact Us</NavLink>
+      </li>
     </>
   );
 
@@ -63,7 +59,11 @@ const Navbar = () => {
             data-aos-easing="ease-in-out"
             className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400  lg:text-2xl font-black flex gap-1"
           >
-             <img className="hidden lg:block w-8" src="https://i.ibb.co/GPQ8Jdg/Logo-Architecto-Dark-1.png" alt="" />
+            <img
+              className="hidden lg:block w-8"
+              src="https://i.ibb.co/GPQ8Jdg/Logo-Architecto-Dark-1.png"
+              alt=""
+            />
             DwellDex
           </Link>
         </div>
@@ -71,38 +71,38 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-
-        
-        <div className="pointer group relative mx-4 flex  w-max justify-center">
-            {
-              user && <img className="w-12 cursor-pointer ring-2 ring-white p-1 h-12 rounded-full" src={user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"}></img> 
-
-            }
+          <div className="pointer group relative mx-3 lg:mx-4 flex  w-max justify-center">
+            {user && (
+              <img
+                className="lg:w-12 cursor-pointer ring-2 ring-white lg:p-1 lg:h-12 rounded-full"
+                src={user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"}
+              ></img>
+            )}
             {/* Hover Text */}
-           
-            {
-              user && <div className="absolute -bottom-12 cursor-pointer whitespace-nowrap opacity-0 duration-500 hover:hidden group-hover:-bottom-16 group-hover:opacity-100">
-              <p className="rounded-md  px-3 py-2 bg-white text-black border"> {user?.displayName}</p>
-              <span className="absolute -top-2 left-[50%] h-0 w-0 -translate-x-1/2 -rotate-[45deg] border-b-[20px] border-r-[20px] "></span>
-          </div>
-            }
+
+            {user?.displayName && (
+              <div className="absolute -bottom-12 cursor-pointer whitespace-nowrap opacity-0 duration-500 hover:hidden group-hover:-bottom-16 group-hover:opacity-100">
+                <p className="rounded-md  px-3 py-2 bg-white text-black border">
+                  {" "}
+                  {user?.displayName}
+                </p>
+                <span className="absolute -top-2 left-[50%] h-0 w-0 -translate-x-1/2 -rotate-[45deg] border-b-[20px] border-r-[20px] "></span>
+              </div>
+            )}
             {/* Hover button */}
-        </div>
-   
-
-
+          </div>
 
           {user ? (
             <button
               onClick={handleLogout}
-              className="btn hover:animate__animated hover:animate__headShake px-5 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
+              className="btn hover:animate__animated hover:animate__headShake px-4 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
             >
               <span className="relative z-10">Logout</span>
             </button>
           ) : (
             <Link
               to={"/login"}
-              className="btn hover:animate__animated hover:animate__headShake px-5 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
+              className="btn hover:animate__animated hover:animate__headShake px-4 lg:px-10 relative flex h-5 lg:h-10 items-center justify-center overflow-hidden bg-[#0095ffb7] text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#0095FF] before:duration-500 before:ease-out hover:shadow-[#0095FF] hover:before:h-56 hover:before:w-56"
             >
               <span className="relative z-10">Login</span>
             </Link>

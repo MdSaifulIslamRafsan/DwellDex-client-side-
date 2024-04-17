@@ -70,7 +70,7 @@ const UpdateProfile = () => {
       });
     }
     const updateName = FirstName + " " + LastName;
-    handleUpdateUserInfo(updateName, photoURL, phoneNumber);
+    handleUpdateUserInfo(updateName, photoURL);
 
   };
 
@@ -100,7 +100,7 @@ const UpdateProfile = () => {
                       user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"
                     })`,
                   }}
-                  className="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full bg-cover bg-center bg-no-repeat"
+                  className="mx-auto flex justify-center w-[141px] h-[141px]  bg-blue-300/20 rounded-full bg-cover bg-center bg-no-repeat"
                 >
                   <div className="bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-4">
                     <input
@@ -181,7 +181,7 @@ const UpdateProfile = () => {
               <h2 className="text-center mt-1 font-semibold dark:text-gray-300">
                 Update Your Profile Information
               </h2>
-              <div className="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+              <div className="flex lg:flex-row flex-col xs:flex-col gap-2 justify-center w-full">
                 <div className="w-full  mb-4 mt-6">
                   <label
                     htmlFor="firstName"
@@ -210,7 +210,7 @@ const UpdateProfile = () => {
                   />
                 </div>
               </div>
-              <div className="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+              <div className="flex lg:flex-row flex-col xs:flex-col gap-2 justify-center w-full">
                 <div className="w-full  mb-4 mt-6">
                   <label htmlFor="photoURL" className="mb-2 dark:text-gray-300">
                     Photo URL

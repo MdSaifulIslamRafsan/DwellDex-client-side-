@@ -6,9 +6,9 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updatePhoneNumber,
   updateProfile,
 } from "firebase/auth";
+import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase.config";
 import { toast } from "react-toastify";
@@ -25,12 +25,7 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
-  const handleCreateAccount = (email, password, displayName, photoURL) => {
-    
-    updateProfile(auth.currentUser, {
-      displayName: displayName,
-      photoURL: photoURL,
-    })
+  const handleCreateAccount = (email, password) => {
     return createUserWithEmailAndPassword(
       auth,
       email,
@@ -146,16 +141,9 @@ const AuthProvider = ({ children }) => {
       });
   };
 
-  const handleUpdateUserInfo = (updateName, updateImg, phoneNumber) => {
+  const handleUpdateUserInfo = (updateName, updateImg) => {
 
-    updatePhoneNumber(auth.currentUser,  phoneNumber)
-    .then(() => {
-      console.log('seccess');
-      // ...
-    }).catch((error) => {
-      console.log(error?.message);
-    });
-
+    
     updateProfile(auth.currentUser, {
       displayName: updateName,
       photoURL: updateImg,
@@ -203,5 +191,8 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
   );
 };
+AuthProvider.propTypes = {
+  children: PropTypes.object,
+}
 
 export default AuthProvider;

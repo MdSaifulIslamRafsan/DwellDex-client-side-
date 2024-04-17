@@ -1,5 +1,6 @@
 import { FaBuilding, FaLocationArrow } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const PropertyCard = ({ data }) => {
  
@@ -30,12 +31,12 @@ const PropertyCard = ({ data }) => {
           </a>
           <p className="leading-snug text-gray-500">
             {description.length > 100 ? (
-              <p>
+              <span>
                 {description.slice(0, 100)}{" "}
                 <Link to={`/details/${id}`} className="btn-link text-sm">
                   Read More
                 </Link>
-              </p>
+              </span>
             ) : (
               { description }
             )}
@@ -72,5 +73,7 @@ const PropertyCard = ({ data }) => {
     </div>
   );
 };
-
+PropertyCard.propTypes = {
+  data: PropTypes.object,
+}
 export default PropertyCard;

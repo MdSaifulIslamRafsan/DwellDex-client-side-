@@ -3,6 +3,7 @@ import PropertiesCard from "../Component/PropertiesCard";
 import Slider from "../Component/Slider";
 import CompanyLogo from "../Component/CompanyLogo";
 import Review from "../Component/Review";
+import FAQ from './../Component/FAQ';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <PropertiesCard></PropertiesCard>
       <CompanyLogo></CompanyLogo>
       <Review></Review>
+      <FAQ></FAQ>
     </div>
   );
 };

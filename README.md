@@ -1,4 +1,6 @@
 My Website Name:- DwellDex
+
+
 This is my Website live link :- https://assignment-no-09.netlify.app/
 
 # Interactive Navigation:
@@ -6,7 +8,7 @@ Implemented with React Router DOM, the website offers seamless navigation betwee
 - Home: The central hub where users can explore residential property listings, access essential information, and navigate various sections of the website.
 - Update Profile: Exclusive to logged-in users, this route allows individuals to update their profile information, ensuring personalized experiences and enhanced user engagement.
 - User Profile: Available to logged-in users, this route showcases user-specific details, such as saved searches, favorite listings, and personalized recommendations, enhancing user interaction and satisfaction.
-- Contact Us: Users can easily reach out to us for inquiries, feedback, or assistance through this route, ensuring prompt and efficient communication.
+
 - View Property: When users click to view property details, the route dynamically adjusts based on their login status. If logged in, users are directed to the property details page for comprehensive information. Otherwise, they are redirected to the login page, ensuring seamless access to property listings while maintaining security and privacy.
 - React-Leaflet: React-Leaflet enhances our website by seamlessly integrating interactive maps into our property listings. With its features, users can explore property locations, conduct location-based searches, and visualize nearby amenities with ease, empowering them to make informed decisions about their residential choices.
 
@@ -33,8 +35,10 @@ Users can explore detailed property listings within the chosen real estate categ
 - React Router Dom
 - Moment js
 - React-fast-marquee
+- prop-types
 
-# The following documentation packages are implemented:
+
+# The following documentation packages are implement:
 - AOS package
 - Animate.css 
 - React-leaflet

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-
+import PropTypes from 'prop-types';
 export const FakeDataContext = createContext(null);
 const FakeDataProvider = ({children}) => {
 
@@ -44,5 +44,7 @@ const FakeDataProvider = ({children}) => {
         </div>
     );
 };
-
+FakeDataProvider.propTypes = {
+    children: PropTypes.object,
+  }
 export default FakeDataProvider;
