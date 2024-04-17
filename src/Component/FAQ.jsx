@@ -35,7 +35,7 @@ const FAQ = () => {
         data-aos="fade-down"
         data-aos-duration="500"
         data-aos-easing="linear"
-        className="text-xl text-center sm:text-4xl leading-normal font-extrabold tracking-tight "
+        className="text-xl text-center lg:text-3xl leading-normal font-extrabold tracking-tight "
       >
         Frequently Asked{" "}
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400 font-black  gap-1">
