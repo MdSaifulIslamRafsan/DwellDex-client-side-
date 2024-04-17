@@ -27,7 +27,7 @@ const PropertyCard = ({ data }) => {
         </div>
         <div className="space-y-3">
           <a rel="noopener noreferrer" href="#" className="block">
-            <h3 className="text-xl font-semibold">{estate_title}</h3>
+            <h3 className="text-sm lg:text-xl font-semibold">{estate_title}</h3>
           </a>
           <p className="leading-snug text-gray-500">
             {description.length > 100 ? (
