@@ -30,17 +30,31 @@ const FAQ = () => {
   const handleToggle = (idx) =>
     setIsOpen((prevIdx) => (prevIdx === idx ? null : idx));
   return (
-    <div className="mb-20">
-      <h3 className="text-3xl text-center sm:text-4xl leading-normal font-extrabold tracking-tight ">
+    <div className="mt-10 lg:mt-0 max-w-[1440px] mx-auto w-11/12 lg:w-10/12">
+      <h3
+        data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-easing="linear"
+        className="text-xl text-center sm:text-4xl leading-normal font-extrabold tracking-tight "
+      >
         Frequently Asked{" "}
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-400 font-black  gap-1">
           Questions
         </span>
       </h3>
-      <p className="w-2/3 text-center mx-auto mt-5">Find quick answers to common queries in our FAQ section. Simplify your experience by exploring our comprehensive list of frequently asked questions.</p>
+      <p
+        data-aos="fade-up"
+        data-aos-duration="500"
+        data-aos-easing="linear"
+        className="lg:w-2/3 text-center mx-auto mt-5"
+      >
+        Find quick answers to common queries in our FAQ section. Simplify your
+        experience by exploring our comprehensive list of frequently asked
+        questions.
+      </p>
 
       <div className="flex justify-center">
-        <div className=" max-w-[550px] rounded-lg py-20 space-y-6 cursor-pointer">
+        <div className=" max-w-[550px] rounded-lg py-10 space-y-6 cursor-pointer">
           {/* maping each accordion  */}
           {array.map((arr, idx) => (
             <div

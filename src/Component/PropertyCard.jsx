@@ -14,7 +14,7 @@ const PropertyCard = ({ data }) => {
           <a rel="noopener noreferrer" href="#" className="mb-0 capitalize ">
             {status}
           </a>
-          <p className="flex text-sm lg:text-base gap-2 items-center"><FaBuilding ></FaBuilding> {area}</p>
+          <p className="flex text-xs lg:text-base gap-2 items-center"><FaBuilding ></FaBuilding> {area}</p>
         </div>
       </div>
       <div className="space-y-4">

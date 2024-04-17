@@ -22,8 +22,17 @@ const Review = () => {
     const isSmallScreen = window.innerWidth <= 768;
     return (
       <section className="max-w-[1440px] mx-auto w-11/12 lg:w-10/12 mt-20">
-        <h1 className="font-bold text-center text-4xl">What Our Client Say</h1>
-        <p className="text-center lg:w-2/3 mx-auto mt-5">Our clients share their experiences and testimonials about our services, providing valuable insights into the quality and satisfaction they've experienced</p>
+        <h1 
+        data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-easing="linear"
+        className="font-bold text-center text-xl lg:text-3xl">What Our Client Say</h1>
+        <p 
+        data-aos="fade-up"
+        data-aos-duration="500"
+        data-aos-easing="linear"
+        
+        className="text-center lg:w-2/3 mx-auto mt-5">Our clients share their experiences and testimonials about our services, providing valuable insights into the quality and satisfaction they've experienced</p>
           <div className="min-h-[500px] flex flex-row items-center overflow-hidden gap-5 lg:gap-10">
         <div className="relative overflow-hidden">
             <div className="absolute w-full h-full flex items-center justify-between z-30 px-5">
