@@ -26,18 +26,18 @@ The website incorporates interactive elements such as sliders, animations, and i
 Users can explore detailed property listings within the chosen real estate category, including information such as area, facilities, price, and availability status (sale or rent), enhancing their decision-making process.
 
 # My project implement packages: 
-- [React Helmet:] Allows you to manage document head metadata (e.g., title, meta tags) in React.
+- [React-Helmet:] Allows you to manage document head metadata (e.g., title, meta tags) in React.
 
-- [React Icon:] Provides a set of reusable, customizable icons for React applications.
+- [React-Icon:] Provides a set of reusable, customizable icons for React applications.
 
 - [Firebase:] A platform for building web and mobile applications that provides various services like authentication, database, storage, and hosting.
-- [Daisy UI:] A UI library built on top of Tailwind CSS, providing ready-to-use UI components.
+- [Daisy-UI:] A UI library built on top of Tailwind CSS, providing ready-to-use UI components.
 
-- [Tailwind CSS:] A utility-first CSS framework for building custom designs quickly by composing utility classes.
+- [Tailwind-CSS:] A utility-first CSS framework for building custom designs quickly by composing utility classes.
 
-- [Navigate UI:] Presumably a UI library or component set for navigation-related elements.
+- [Navigate-UI:] Presumably a UI library or component set for navigation-related elements.
 
-- [React Router Dom:] A library for routing in React applications, allowing you to navigate between different components while keeping the UI in sync with the URL.
+- [React-Router-Dom:] A library for routing in React applications, allowing you to navigate between different components while keeping the UI in sync with the URL.
 
 - [Moment.js:] A library for parsing, validating, manipulating, and formatting dates and times in JavaScript.
 
@@ -48,13 +48,13 @@ Users can explore detailed property listings within the chosen real estate categ
 
 # Documentation packages:
 
-- [AOS package:] Animate On Scroll library, which provides animations when elements come into view during scrolling.
+- [AOS-package:] Animate On Scroll library, which provides animations when elements come into view during scrolling.
 
 - [Animate.css:] A library of ready-to-use CSS animations.
 
 - [React-leaflet:] A React wrapper for Leaflet, a JavaScript library for interactive maps.
 
-- [React Hook Form:] A library for managing form state and validation in React using hooks.
+- [React-Hook-Form:] A library for managing form state and validation in React using hooks.
 
 
 # React + Vite
