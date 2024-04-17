@@ -26,35 +26,39 @@ The website incorporates interactive elements such as sliders, animations, and i
 Users can explore detailed property listings within the chosen real estate category, including information such as area, facilities, price, and availability status (sale or rent), enhancing their decision-making process.
 
 # My project implement packages: 
-- [React Helmet:](https://github.com/your_username/your_project_folder/react_helmet_docs) Allows you to manage document head metadata (e.g., title, meta tags) in React.
+- [React Helmet:](https://www.npmjs.com/package/react-helmet) Allows you to manage document head metadata (e.g., title, meta tags) in React.
 
-- [React Icon:](https://github.com/your_username/your_project_folder/react_icon_docs) Provides a set of reusable, customizable icons for React applications.
+- [React Icon:](https://www.npmjs.com/package/react-icons) Provides a set of reusable, customizable icons for React applications.
 
 - [Firebase:](https://firebase.google.com/) A platform for building web and mobile applications that provides various services like authentication, database, storage, and hosting.
-- [Daisy UI:](https://github.com/your_username/your_project_folder/daisy_ui_docs) A UI library built on top of Tailwind CSS, providing ready-to-use UI components.
+
+- [Daisy UI:](https://daisyui.com/) A UI library built on top of Tailwind CSS, providing ready-to-use UI components.
 
 - [Tailwind CSS:](https://tailwindcss.com/) A utility-first CSS framework for building custom designs quickly by composing utility classes.
 
-- [Navigate UI:](https://github.com/your_username/your_project_folder/navigate_ui_docs) Presumably a UI library or component set for navigation-related elements.
+- [Navigate UI:](https://www.npmjs.com/package/navigate-ui) Presumably a UI library or component set for navigation-related elements.
 
 - [React Router Dom:](https://reactrouter.com/web/guides/quick-start) A library for routing in React applications, allowing you to navigate between different components while keeping the UI in sync with the URL.
 
 - [Moment.js:](https://momentjs.com/) A library for parsing, validating, manipulating, and formatting dates and times in JavaScript.
 
-- [React-fast-marquee:](https://github.com/your_username/your_project_folder/react_fast_marquee_docs) A React component for creating marquees with high performance.
+- [React-fast-marquee:](https://www.npmjs.com/package/react-fast-marquee) A React component for creating marquees with high performance.
 
-- [prop-types:](https://github.com/facebook/prop-types) A package for type-checking React props to ensure they conform to expectations.
+- [prop-types:](https://www.npmjs.com/package/prop-types) A package for type-checking React props to ensure they conform to expectations.
 
 
 # Documentation packages:
 
-- [AOS package:](https://github.com/your_username/your_project_folder/aos_docs) Animate On Scroll library, which provides animations when elements come into view during scrolling.
+- [AOS package:](https://www.npmjs.com/package/aos) Animate On Scroll library, which provides animations when elements come into view during scrolling.
 
 - [Animate.css:](https://animate.style/) A library of ready-to-use CSS animations.
 
-- [React-leaflet:](https://react-leaflet.js.org/) A React wrapper for Leaflet, a JavaScript library for interactive maps.
+- [React-leaflet:](https://www.npmjs.com/package/react-leaflet) A React wrapper for Leaflet, a JavaScript library for interactive maps.
 
 - [React Hook Form:](https://react-hook-form.com/get-started) A library for managing form state and validation in React using hooks.
+
+
+
 
 
 
