@@ -280,14 +280,14 @@ const LoginAndRegister = () => {
         </p>
         <hr />
         <button
-          onClick={handleGoogleLogin}
+          onClick={()=>handleGoogleLogin(location ,navigate)}
           type="button"
-          className="py-4 hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto block shadow-lg border rounded-md border-black"
+          className="py-4 text-sm lg:text-base hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto block shadow-lg border rounded-md border-black"
         >
           <svg
             viewBox="-0.5 0 48 48"
             version="1.1"
-            className="w-6 inline-block mr-3"
+            className="w-5 inline-block mr-3"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             fill="#000000"
@@ -338,9 +338,9 @@ const LoginAndRegister = () => {
           Continue with Google
         </button>
         <button
-          onClick={handleGithubLogin}
+          onClick={()=> handleGithubLogin( location ,navigate)}
           type="button"
-          className="py-4 flex  hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto item-center gap-2  shadow-lg border rounded-md border-black"
+          className="py-4 flex text-sm lg:text-base hover:animate__animated hover:animate__headShake  px-5 mb-4 mt-8 mx-auto item-center gap-2  shadow-lg border rounded-md border-black"
         >
           <FaGithub className="text-2xl"></FaGithub>
           Continue with Github

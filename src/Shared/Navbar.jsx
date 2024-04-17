@@ -6,7 +6,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
-console.log(user);
 
   const navLinks = (
     <>

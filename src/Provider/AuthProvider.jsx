@@ -18,6 +18,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
 
 
+
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
   
@@ -41,13 +42,13 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = (location ,navigate) => {
     setLoader(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const currentUser = result.user;
         setUser(currentUser);
-
+        navigate(location?.state ? location?.state : "/");
         toast.success("You have successfully logged into Google.", {
           position: "top-right",
           autoClose: 5000,
@@ -73,11 +74,11 @@ const AuthProvider = ({ children }) => {
       });
   };
 
-  const handleGithubLogin = () => {
+  const handleGithubLogin = ( location , navigate) => {
     setLoader(true);
     signInWithPopup(auth, githubProvider)
       .then((result) => {
-        // navigate(location?.state ? location?.state : "/");
+        navigate(location?.state ? location?.state : "/");
         const currentUser = result.user;
         setUser(currentUser);
         toast.success("You have successfully logged into GitHub.", {

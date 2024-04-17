@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
 
   return (
     <div className="max-w-[1440px] w-11/12 lg:w-10/12 flex items-center py-10 flex-wrap mx-auto my-32 lg:my-0">
