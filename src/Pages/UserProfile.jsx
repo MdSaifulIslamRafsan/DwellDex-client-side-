@@ -8,14 +8,14 @@ const UserProfile = () => {
 
 
   return (
-    <div className="max-w-[1440px] w-11/12 lg:w-10/12 flex items-center py-10 flex-wrap mx-auto my-32 lg:my-0">
+    <div className="max-w-[1440px] w-11/12 lg:w-10/12 flex flex-col-reverse lg:flex-row items-center py-10 flex-wrap mx-auto lg:my-10 ">
        <Helmet>
         <title>DwellDex - User Profile</title>
       </Helmet>
       {/*Main Col*/}
       <div
         id="profile"
-        className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
+        className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75"
       >
         <div className="bg-white overflow-hidden shadow rounded-lg border">
           <div className="px-4 py-5 sm:px-6">
@@ -73,7 +73,7 @@ const UserProfile = () => {
         {/* Big profile image for side bar (desktop) */}
         <img
           src={user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"}
-          className="rounded-none h-[550px] lg:rounded-lg shadow-2xl hidden lg:block"
+          className="rounded-none h-40 mx-auto lg:h-[550px] lg:rounded-lg shadow-2xl"
         />
       </div>
     </div>

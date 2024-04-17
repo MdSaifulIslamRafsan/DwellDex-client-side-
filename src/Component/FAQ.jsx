@@ -46,7 +46,7 @@ const FAQ = () => {
         data-aos="fade-up"
         data-aos-duration="500"
         data-aos-easing="linear"
-        className="lg:w-2/3 text-center mx-auto mt-5"
+        className="lg:w-2/3 text-gray-500 text-center mx-auto mt-5"
       >
         Find quick answers to common queries in our FAQ section. Simplify your
         experience by exploring our comprehensive list of frequently asked

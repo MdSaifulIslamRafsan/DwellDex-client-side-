@@ -32,7 +32,7 @@ const Review = () => {
         data-aos-duration="500"
         data-aos-easing="linear"
         
-        className="text-center lg:w-2/3 mx-auto mt-5">Our clients share their experiences and testimonials about our services, providing valuable insights into the quality and satisfaction they've experienced</p>
+        className="text-center text-gray-500 lg:w-2/3 mx-auto mt-5">Our clients share their experiences and testimonials about our services, providing valuable insights into the quality and satisfaction they've experienced</p>
           <div className="min-h-[500px] flex flex-row items-center overflow-hidden gap-5 lg:gap-10">
         <div className="relative overflow-hidden">
             <div className="absolute w-full h-full flex items-center justify-between z-30 px-5">

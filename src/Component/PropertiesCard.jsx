@@ -20,7 +20,7 @@ const PropertiesCard = () => {
           data-aos="fade-up"
           data-aos-duration="500"
           data-aos-easing="linear"
-          className="lg:w-2/3 text-center mx-auto"
+          className="lg:w-2/3 text-gray-500 text-center mx-auto"
         >
           Discover our curated selection of featured properties, showcasing the
           finest homes and apartments available. Find your perfect living space
