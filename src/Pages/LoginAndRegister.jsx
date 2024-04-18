@@ -29,6 +29,7 @@ const LoginAndRegister = () => {
   } = useForm();
 
   const createAccountFormBtn = (data) => {
+    reset();
     const { name, email, photoURL, password } = data;
     if (!/^[a-zA-Z\-\'\s]+$/.test(name)) {
       return toast.error(
@@ -130,7 +131,7 @@ const LoginAndRegister = () => {
           theme: "light",
         });
       });
-      reset();
+     
   };
 
 
@@ -143,6 +144,7 @@ const LoginAndRegister = () => {
 
 
   const LoginFormBtn = (data) => {
+    loginReset();
     const { _email, _password } = data;
     if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(_email)){
       return toast.error(
@@ -203,7 +205,7 @@ const LoginAndRegister = () => {
           theme: "light",
         });
       });
-      loginReset();
+      
   };
 
   const handlePassword = () => {

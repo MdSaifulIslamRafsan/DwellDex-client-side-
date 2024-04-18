@@ -12,6 +12,7 @@ const UpdateProfile = () => {
     reset 
   } = useForm();
   const onSubmit = (data) => {
+    reset();
     const { FirstName, LastName, phoneNumber, photoURL } = data;
     if (!/^[a-zA-Z\-\'\s]+$/.test(FirstName)) {
       return toast.error(
@@ -72,7 +73,7 @@ const UpdateProfile = () => {
     }
     const updateName = FirstName + " " + LastName;
     handleUpdateUserInfo(updateName, photoURL);
-    reset();
+   
 
   };
 
