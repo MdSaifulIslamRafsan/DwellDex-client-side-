@@ -9,6 +9,7 @@ const UpdateProfile = () => {
   const {
     register,
     handleSubmit,
+    reset 
   } = useForm();
   const onSubmit = (data) => {
     const { FirstName, LastName, phoneNumber, photoURL } = data;
@@ -71,6 +72,7 @@ const UpdateProfile = () => {
     }
     const updateName = FirstName + " " + LastName;
     handleUpdateUserInfo(updateName, photoURL);
+    reset();
 
   };
 

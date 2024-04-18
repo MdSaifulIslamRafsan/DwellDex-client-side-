@@ -17,7 +17,7 @@ const UserProfile = () => {
         id="profile"
         className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75"
       >
-        <div className="bg-white overflow-hidden shadow rounded-lg border">
+        <div className="bg-white  overflow-hidden shadow rounded-lg border">
           <div className="px-4 py-5 sm:px-6">
             <h3 className="text-lg leading-6 font-medium text-gray-900">
               User Profile
@@ -73,7 +73,7 @@ const UserProfile = () => {
         {/* Big profile image for side bar (desktop) */}
         <img
           src={user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"}
-          className="rounded-none h-40 mx-auto lg:h-[550px] lg:rounded-lg shadow-2xl"
+          className="rounded-lg md:w-1/2 lg:w-full h-40 mx-auto lg:mx-0 lg:h-[550px] lg:rounded-lg shadow-2xl"
         />
       </div>
     </div>

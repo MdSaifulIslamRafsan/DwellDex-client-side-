@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { FakeDataContext } from "../Provider/FakeDataProvider";
+import {  iconPerson  } from '../Component/icon';
 import {
   FaBuildingColumns,
   FaLocationDot,
@@ -54,7 +55,7 @@ const DetailsPage = () => {
             <p className="flex gap-2 items-center">
               <FaLocationDot /> {isExist?.location?.name}
             </p>
-            <div className="flex items-center text-xs md:text-base gap-2">
+            <div className="flex flex-wrap items-center text-xs md:text-base gap-2">
               <FaCheckCircle />
               {isExist?.facilities?.map((facility, index) => (
                 <p key={index}>#{facility}</p>
@@ -74,7 +75,7 @@ const DetailsPage = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={position}>
+          <Marker position={position}  icon={ iconPerson }>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>

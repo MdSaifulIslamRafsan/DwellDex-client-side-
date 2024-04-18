@@ -25,6 +25,7 @@ const LoginAndRegister = () => {
   const {
     register,
     handleSubmit,
+    reset
   } = useForm();
 
   const createAccountFormBtn = (data) => {
@@ -94,6 +95,7 @@ const LoginAndRegister = () => {
           theme: "light",
         }
       );
+      
     }
     handleCreateAccount(email, password)
       .then(() => {
@@ -128,12 +130,14 @@ const LoginAndRegister = () => {
           theme: "light",
         });
       });
+      reset();
   };
 
 
   const {
     register : login,
     handleSubmit : handleLogin,
+    reset : loginReset
     
   } = useForm();
 
@@ -199,6 +203,7 @@ const LoginAndRegister = () => {
           theme: "light",
         });
       });
+      loginReset();
   };
 
   const handlePassword = () => {

@@ -74,7 +74,7 @@ const Navbar = () => {
           <div className="pointer group relative mx-3 lg:mx-4 flex  w-max justify-center">
             {user && (
               <img
-                className="max-w-12 w-full h-full max-h-12 cursor-pointer ring-2 ring-white lg:p-1  rounded-full"
+                className="lg:w-12 lg:h-12 w-8 h-8 md:h-10 md:w-10 cursor-pointer ring-2 ring-white lg:p-1  rounded-full"
                 src={user?.photoURL || "https://i.ibb.co/XZcYs4j/user.png"}
               ></img>
             )}
